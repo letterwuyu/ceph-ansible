@@ -9,13 +9,13 @@
   fail:
     msg: "Architecture not supported {{ ansible_architecture }}"
   when:
-    - ansible_architecture not in ['x86_64', 'ppc64le', 'armv7l', 'aarch64']
+    - ansible_architecture not in ['sw_64','x86_64', 'ppc64le', 'armv7l', 'aarch64']
 
 - name: fail on unsupported distribution
   fail:
     msg: "Distribution not supported {{ ansible_os_family }}"
   when:
-    - ansible_os_family not in ['Debian', 'RedHat', 'ClearLinux', 'Suse']
+    - ansible_os_family not in ['deepin GNU/Linux', 'Debian', 'RedHat', 'ClearLinux', 'Suse']
 
 - name: fail on unsupported distribution for red hat ceph storage
   fail:

@@ -190,6 +190,14 @@
     - not osd_auto_discovery|default(False)
     - osd_scenario|default('dummy') != 'lvm'
 
+# deepin
+- name: set_fact ceph_uid for deepin based system - non container
+  set_fact:
+    ceph_uid: 64045
+  when:
+    - not containerized_deployment
+      #    - ansible_os_family == 'deepin'
+
 - name: set_fact ceph_uid for debian based system - non container
   set_fact:
     ceph_uid: 64045

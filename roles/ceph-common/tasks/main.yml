@@ -20,6 +20,14 @@
 - name: include installs/install_on_debian.yml
   include: installs/install_on_debian.yml
   when:
+    - ansible_os_family == 'deepin GNU/Linux'
+  tags:
+    - package-install
+  # Hard code this so we will skip the entire file instead of individual tasks (Default isn't Consistent)
+
+- name: include installs/install_on_debian.yml
+  include: installs/install_on_debian.yml
+  when:
     - ansible_os_family == 'Debian'
   tags:
     - package-install
